@@ -1,7 +1,10 @@
 <template>
    <div aeris-template-component-host="">
       <div aeris-ciblage-css="">
-         Test compil et affichage : {{ message }}
+         <ul>
+            <li> compil et affichage : {{ message }}</li>
+            <li> Test store : {{ storeMessage }}</li>
+         </ul>
       </div>
    </div>
 </template>
@@ -26,7 +29,16 @@ export default {
     }
   },
 
-  created: function() {}
+  computed: {
+    storeMessage() {
+      return this.$store.getters.getMessage;
+    }
+  },
+
+  created: function() {
+    // to catch in the console in order to debug
+    console.log("template component created");
+  }
 };
 </script>
 <style>

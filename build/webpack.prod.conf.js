@@ -10,12 +10,12 @@ const buildName = PACKAGE.name;
 
 const webpackConfig = merge(baseWebpackConfig, {
   entry: {
-    app: "./src/lib/main.js"
+    "example": "./src/lib/modules/example/example-main.js"
   },
   output: {
     path: path.resolve(__dirname, "../dist"),
     publicPath: "/dist/",
-    filename: buildName + "_" + buildVersion + ".js"
+    filename: buildName + "_" + "[name]" + "_" + buildVersion + ".js"
   },
   devtool: "#source-map",
   plugins: [

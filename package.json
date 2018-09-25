@@ -1,6 +1,6 @@
 {
-  "name": "template-components-vjs",
-  "description": "Template for specific components. ",
+  "name": "template-components",
+  "description": "Template for specific components.",
   "version": "0.0.1",
   "author": "Aeris",
   "private": false,
@@ -9,11 +9,12 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "aeris-mixins": "latest",
     "vue": "^2.5.2",
     "vue-custom-element": "1.2.1",
     "vue-i18n": "7.0.5",
     "vue-resource": "^1.3.4",
-    "aeris-mixins": "latest"
+    "vuex": "^3.0.1"
   },
   "devDependencies": {
     "@kazupon/vue-i18n-loader": "^0.1.1",

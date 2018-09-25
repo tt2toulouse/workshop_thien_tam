@@ -1,7 +1,7 @@
 // to run the tests install testcafe globaly : npm install -g testcafe
-// to run one test file : testcafe chromium test/e2e/test-component.js --selector-timeout 50000 / testcafe firefox test/e2e/test-component.js --selector-timeout 50000
+// to run one test file : testcafe chromium test/e2e/test-template-component.js --selector-timeout 50000 / testcafe firefox test/e2e/test-template-component.js --selector-timeout 50000
 //			(the browser has to be installed on the machine where you run the test)
-import Page from "./test-component-model";
+import Page from "./template-component-model";
 
 fixture`FirstTest`.page`http://localhost:8080/`;
 

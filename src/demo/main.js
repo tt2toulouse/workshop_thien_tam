@@ -1,29 +1,37 @@
 import Vue from "vue";
-
+import Vuex from "vuex";
 import vueCustomElement from "vue-custom-element";
-Vue.use(vueCustomElement);
-
 import VueI18n from "vue-i18n";
-Vue.use(VueI18n);
-
 import VueResource from "vue-resource";
-Vue.use(VueResource);
-
 import VueRouter from "vue-router";
-Vue.use(VueRouter);
 
 import { VueColorPlugin, VueAerisLanguagePlugin } from "aeris-mixins";
-Vue.use(VueColorPlugin);
-Vue.use(VueAerisLanguagePlugin);
 
-import TemplateComponents from "../lib/template-components.js";
-Vue.use(TemplateComponents);
+import Examplecomponents from "../lib/modules/example/components/example-components.js";
 
-import VueCustomElementRecorder from "../lib/vue-custom-element-recorder.js";
-VueCustomElementRecorder.run();
+import exampleModule from "../lib/modules/example/store/example-store.js";
 
 import app from "./app.vue";
 import testComponentName from "./test-component.vue";
+
+Vue.use(vueCustomElement);
+Vue.use(Vuex);
+Vue.use(VueI18n);
+Vue.use(VueResource);
+Vue.use(VueRouter);
+
+Vue.use(VueColorPlugin);
+Vue.use(VueAerisLanguagePlugin);
+
+const store = new Vuex.Store({
+  modules: {
+    example: exampleModule
+  }
+});
+
+Vue.use(Examplecomponents, {
+  store: store
+});
 
 const router = new VueRouter({
   mode: "history",
