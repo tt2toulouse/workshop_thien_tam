@@ -2,7 +2,10 @@ function registerVueComponents(Vue, components) {
   for (let component in components) {
     if (
       components[component].vueComponent &&
-      !components[component].isCustomElement
+      (process.env.NODE_ENV === "development" ||
+        process.env.NODE_ENV === "test" ||
+        (process.env.NODE_ENV === "production" &&
+          !components[component].isCustomElement))
     ) {
       Vue.component(
         components[component].vueComponent.name,
@@ -20,7 +23,10 @@ function registerCustomElements(Vue, components) {
   for (let component in components) {
     if (
       components[component].vueComponent &&
-      components[component].isCustomElement
+      (!process.env.NODE_ENV === "development" ||
+        !process.env.NODE_ENV === "test" ||
+        (process.env.NODE_ENV === "production" &&
+          components[component].isCustomElement))
     ) {
       Vue.customElement(
         components[component].vueComponent.name,
