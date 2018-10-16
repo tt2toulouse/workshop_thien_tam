@@ -10,7 +10,7 @@
 </template>
 <script>
 export default {
-  name: "template-component",
+  name: "task-edit-component",
 
   props: {
     message: {

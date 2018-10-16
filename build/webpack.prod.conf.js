@@ -10,7 +10,7 @@ const buildName = PACKAGE.name;
 
 const webpackConfig = merge(baseWebpackConfig, {
   entry: {
-    "example": "./src/lib/modules/example/example-main.js"
+    "tasks-main": "./src/lib/modules/example/tasks-main.js"
   },
   output: {
     path: path.resolve(__dirname, "../dist"),

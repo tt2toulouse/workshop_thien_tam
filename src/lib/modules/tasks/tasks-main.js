@@ -3,9 +3,9 @@ import VueCustomElement from "vue-custom-element";
 import Vuex from "vuex";
 import VueI18n from "vue-i18n";
 import VueResource from "vue-resource";
-import Examplecomponents from "./components/example-components.js";
+import TasksComponents from "./components/tasks-components.js";
 
-import exampleModule from "./store/example-store.js";
+import TasksModule from "./store/tasks-store.js";
 
 Vue.use(Vuex);
 Vue.use(VueCustomElement);
@@ -14,10 +14,10 @@ Vue.use(VueResource);
 
 const store = new Vuex.Store({
   modules: {
-    example: exampleModule
+    example: TasksModule
   }
 });
 
-Vue.use(Examplecomponents, {
+Vue.use(TasksComponents, {
   store: store
 });

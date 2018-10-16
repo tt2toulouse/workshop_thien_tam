@@ -1,6 +1,6 @@
 {
-  "name": "template-components",
-  "description": "Template for specific components.",
+  "name": "workshop-components",
+  "description": "Components for training",
   "version": "0.0.1",
   "author": "Aeris",
   "private": false,
