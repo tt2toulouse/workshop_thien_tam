@@ -1,3 +1,3 @@
 <template>
-   <task-edit-component message="OK"/>
+   <task-edit-component editedTitle="Tâche 2"/>
 </template>

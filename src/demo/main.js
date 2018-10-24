@@ -4,6 +4,7 @@ import vueCustomElement from "vue-custom-element";
 import VueI18n from "vue-i18n";
 import VueResource from "vue-resource";
 import VueRouter from "vue-router";
+import VeeValidate from "vee-validate";
 
 import { VueColorPlugin, VueAerisLanguagePlugin } from "aeris-mixins";
 
@@ -19,6 +20,7 @@ Vue.use(Vuex);
 Vue.use(VueI18n);
 Vue.use(VueResource);
 Vue.use(VueRouter);
+Vue.use(VeeValidate);
 
 Vue.use(VueColorPlugin);
 Vue.use(VueAerisLanguagePlugin);

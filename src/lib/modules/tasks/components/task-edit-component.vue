@@ -1,50 +1,74 @@
+<i18n>
+  {
+    "en": {
+      "save": "Save",
+      "cancel": "Cancel",
+      "task_title": "Task Title"
+    },
+    "fr": {
+      "save": "Enregistrer",
+      "cancel": "Annuler",
+      "task_title": "Titre de la tâche"
+    }
+  }
+</i18n>  
 <template>
-   <div aeris-template-component-host="">
-      <div aeris-ciblage-css="">
-         <ul>
-            <li> compil et affichage : {{ message }}</li>
-            <li> Test store : {{ storeMessage }}</li>
-         </ul>
-      </div>
-   </div>
+  <div>
+    <input v-validate="'required|max:10'" :class="{hasError:errors.has('inputTitle')} " v-model="title" type="text" name="inputTitle" :placeHolder="$t('task_title')">
+    <span>{{ errors.first('inputTitle')}}</span>
+    <div>
+      <button type="button" name="save" @click="save" :title="$t('save')">
+        <i class="fa fa-save"/>
+      </button>
+     <button type="button" name="cancel" @click="cancel" :title="$t('cancel')">
+        <i class="fa fa-times"/>
+      </button>
+    </div>
+  </div>
 </template>
 <script>
 export default {
   name: "task-edit-component",
-
-  props: {
-    message: {
+  props :{
+    editedTitle:{
       type: String,
-      default: "Je ne veux pas ce message"
+      default: ""
+    },
+    editediD:{
+      type: String,
+      default: ""
     }
   },
-
+  watch :{
+    editedTitle(value){
+      this.title = value;
+    }
+  },
   data() {
-    return {};
+    return {
+      title: "Task 1"
+    };
   },
-
-  watch: {
-    message(value) {
-      this.message = value;
-    }
+  created() {
+    this.$i18n.locale=this.getLanguage
   },
-
   computed: {
-    storeMessage() {
-      return this.$store.getters.getMessage;
+    getLanguage(){
+      return this.$store.getters.getLanguage;
     }
   },
-
-  created: function() {
-    // to catch in the console in order to debug
-    console.log("template component created");
+  methods: {
+    save() {
+      console.log("saving !");
+    },
+    cancel() {
+      console.log("jean-jacques !");
+    }
   }
 };
 </script>
 <style>
-[aeris-template-component-host] [aeris-ciblage-css] {
-  margin: 0 auto;
-  max-width: 1000px;
-  background-color: honeydew;
+.hasError {
+  color: red;
 }
 </style>

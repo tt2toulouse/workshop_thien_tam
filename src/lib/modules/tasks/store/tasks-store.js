@@ -1,6 +1,6 @@
 export default {
   state: {
-    storeMessage: "message du store"
+    language: "fr"
   },
 
   mutations: {},
@@ -8,8 +8,8 @@ export default {
   actions: {},
 
   getters: {
-    getMessage(state) {
-      return state.storeMessage;
+    getLanguage(state) {
+      return state.language;
     }
   }
 };
