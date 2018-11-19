@@ -34,7 +34,7 @@ export default {
       type: String,
       default: ""
     },
-    editediD:{
+    editedId:{
       type: String,
       default: ""
     }
@@ -50,7 +50,7 @@ export default {
     };
   },
   created() {
-    this.$i18n.locale=this.getLanguage
+    this.$i18n.locale=this.getLanguage;
   },
   computed: {
     getLanguage(){
@@ -59,10 +59,38 @@ export default {
   },
   methods: {
     save() {
-      console.log("saving !");
-    },
+      this.$validator.validate().then(result =>{
+        if(result){
+          if(this.editedId){
+        console.log("save edit task");
+      let url = "https://services.aeris-data.fr/todolist/todo/save";
+      this.$http.post(url, {title: this.title}).then(
+        response =>{
+          console.log("task saved");
+        },
+        error =>{
+          console.log("error while saving task to database");
+        }
+      )
+      }
+      else{
+      let url = "https://services.aeris-data.fr/todolist/todo/edit/";
+      this.$http.put(url+ this.editedId,{title: this.title}).then(
+        response =>{
+          console.log("task title modified");
+        },
+        error =>{
+          console.log("error while editing");
+        }
+        )
+      }    
+    }
+  }
+)    
+},
     cancel() {
       console.log("jean-jacques !");
+      this.$emit("closeEdit");
     }
   }
 };

@@ -3,7 +3,11 @@ export default {
     language: "fr"
   },
 
-  mutations: {},
+  mutations: {
+    mutateLanguage(state, language) {
+      state.language = language;
+    }
+  },
 
   actions: {},
 

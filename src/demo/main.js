@@ -14,6 +14,8 @@ import TaskModule from "../lib/modules/tasks/store/tasks-store.js";
 
 import app from "./app.vue";
 import TaskEditComponentTest from "./task-edit-component-test.vue";
+import TaskDisplayComponentTest from "./task-display-component-test.vue";
+import TaskListComponentTest from "./task-list-component-test.vue";
 
 Vue.use(vueCustomElement);
 Vue.use(Vuex);
@@ -41,6 +43,14 @@ const router = new VueRouter({
     {
       path: "/task-edit-path",
       component: TaskEditComponentTest
+    },
+    {
+      path: "/task-display-path",
+      component: TaskDisplayComponentTest
+    },
+    {
+      path: "/task-list-path",
+      component: TaskListComponentTest
     }
   ]
 });
